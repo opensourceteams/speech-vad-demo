@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <common_audio/vad/include/webrtc_vad.h>
 #include <stdlib.h>
 #include "simple_vad.h"
@@ -12,9 +13,25 @@ int add_period_activity(struct periods *per, int is_active, int is_last);
 
 //int add_cut_file_activity(struct cut_info *cut, int is_active, int is_last);
 
-int main() {
-    const char filename[] = "pcm/16k_1.pcm"; // 读取的文件
-    const char output_filename_prefix[] = "16k_1.pcm"; // 保存的文件名
+int main(int argc, char *argv[]) {
+
+
+
+    printf("vad main入口方法\n");
+    printf("vad main入口方法 参数个数:%d \n",argc);
+     printf("vad main入口方法 第一个参数:%s \n",argv[0]);
+       printf("vad main入口方法 第二个参数:%s \n",argv[1]);
+
+
+
+    //const char filename[] = "pcm/16k_1.pcm"; // 读取的文件
+
+     char filename[] = "pcm/16k_1.pcm"; // 读取的文件
+     // filename[] = "pcm/16k_1.pcm";
+    strcpy(filename, argv[1]);
+
+    printf("main入口方法 参数 filename :%s \n",filename);
+    const char output_filename_prefix[] = "pcm"; // 保存的文件名
     const char output_dir[] = "output_pcm"; // 保存的目录
     FILE *fp = fopen(filename, "rb");
     if (fp == NULL) {

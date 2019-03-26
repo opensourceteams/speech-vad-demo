@@ -23,5 +23,5 @@ make -j4 && \
 cp vad-demo .. && cd .. && \
 echo "build success wait 3s to run" && \
 sleep 3 && \
-./vad-demo
+./vad-demo  $1
  
